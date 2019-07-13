@@ -49,24 +49,44 @@ set showcmd
 " 水平切割窗口时，默认在右边显示新窗口
 set splitright
 
+set linespace=5
 
+"设置波浪号颜色
+highlight EndOfBuffer ctermfg=bg
 "----------------------------------------------------------------------
 " 颜色主题：色彩文件位于 colors 目录中
 "----------------------------------------------------------------------
 
 " 设置黑色背景
-set background=dark
+"set background=dark
 
 " 允许 256 色
 set t_Co=256
 
 " 设置颜色主题，会在所有 runtimepaths 的 colors 目录寻找同名配置
+" 在线配色
+" http://bytefluent.com/vivify/           
 color spring
 
+"gvim字体设置
+set guifont=Consolas:h13:cANSI
 
 "----------------------------------------------------------------------
 " 状态栏设置
 "----------------------------------------------------------------------
+" %F 当前文件名
+" %m    当前文件修改状态
+" %r    当前文件是否只读
+" %Y    当前文件类型
+" %{&fileformat}     当前文件编码
+" %b    当前光标处字符的 ASCII 码值
+" %B    当前光标处字符的十六进制值
+" %l    当前光标行号
+" %c    当前光标列号
+" %V    当前光标虚拟列号 (根据字符所占字节数计算)
+" %p    当前行占总行数的百分比
+" %%    百分号
+" %L    当前文件总行数 
 set statusline=                                 " 清空状态了
 set statusline+=\ %F                            " 文件名
 set statusline+=\ [%1*%M%*%n%R%H]               " buffer 编号和状态
