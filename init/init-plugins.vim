@@ -6,7 +6,12 @@
 " Last Modified: 2018/06/10 23:11
 "
 "======================================================================
-" vim: set ts=4 sw=4 tw=78 noet :
+
+"使用vim-plug管理插件
+"call plug#begin('~/vimfiles/plugin')
+" Shorthand notation for plugin
+"Plug 'foo/bar'
+"call plug#end()
 
 
 
