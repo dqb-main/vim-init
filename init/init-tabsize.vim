@@ -25,6 +25,14 @@ set noet
 " 如果后面设置了 expandtab 那么展开 tab 为多少字符
 set softtabstop=4
 
+"编辑时将所有tab替换为空格
+set et
+
+"按一次backspace就删除4个空格
+set smarttab
+
+" 自动格式化
+set formatoptions=tcrqn
 
 augroup PythonTab
 	au!
