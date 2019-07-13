@@ -41,6 +41,10 @@ set ttimeoutlen=50
 " 显示光标位置
 set ruler
 
+"模仿windows快捷键 Ctrl+A全选、Ctrl+C复制、Ctrl+V粘贴
+source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
+behave mswin
 
 "----------------------------------------------------------------------
 " 搜索设置
