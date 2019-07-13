@@ -6,7 +6,11 @@
 " Last Modified: 2018/05/30 19:20:46
 "
 "======================================================================
-" vim: set ts=4 sw=4 tw=78 noet :
+
+"模仿windows快捷键 Ctrl+A全选、Ctrl+C复制、Ctrl+V粘贴
+source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
+behave mswin
 
 
 "----------------------------------------------------------------------
@@ -42,6 +46,27 @@ if has('nvim') == 0 && has('gui_running') == 0
 	endfor
 endif
 
+" 让 gvim 支持 Alt+n 来切换标签页
+function! BufPos_ActivateBuffer(num)
+    let l:count = 1
+    for i in range(1, bufnr("$"))
+        if buflisted(i) && getbufvar(i, "&modifiable")
+            if l:count == a:num
+                exe "buffer " . i
+                return
+            endif
+            let l:count = l:count + 1
+        endif
+    endfor
+    echo "No buffer!"
+endfunction
+function! BufPos_Initialize()
+    for i in range(1, 9)
+        exe "map <M-" . i . "> :call BufPos_ActivateBuffer(" . i . ")<CR>"
+    endfor
+    exe "map <M-0> :call BufPos_ActivateBuffer(10)<CR>"
+endfunction
+autocmd VimEnter * call BufPos_Initialize()
 
 "----------------------------------------------------------------------
 " 终端下功能键设置
@@ -104,6 +129,10 @@ set backupext=.bak
 
 " 禁用交换文件
 set noswapfile
+
+" 不要生成swap文件，当buffer被丢弃的时候隐藏它
+setlocal noswapfile
+set bufhidden=hide
 
 " 禁用 undo文件
 set noundofile
