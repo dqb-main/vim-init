@@ -161,6 +161,17 @@ set ruler
 " 带有如下符号的单词不要被换行分割  
 set iskeyword+=_,$,@,%,#,- 
 
+" 不要闪烁
+set novisualbell
+
+" 不让vim发出讨厌的滴滴声
+set noerrorbells
+
+" 记录历史的行数
+set history=100
+
+" 设置当文件被改动时自动载入
+set autoread
 "----------------------------------------------------------------------
 " 设置代码折叠
 "----------------------------------------------------------------------
@@ -199,4 +210,5 @@ set wildignore+=*.gba,*.sfc,*.078,*.nds,*.smd,*.smc
 set wildignore+=*.linux2,*.win32,*.darwin,*.freebsd,*.linux,*.android
 
 
-
+" 自动载入_vimrc
+autocmd! bufwritepost _vimrc source %
