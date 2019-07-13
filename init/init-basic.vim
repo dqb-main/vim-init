@@ -46,6 +46,9 @@ source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
+"启动的时候不显示那个援助乌干达儿童的提示
+set shortmess=atI
+
 "----------------------------------------------------------------------
 " 搜索设置
 "----------------------------------------------------------------------
@@ -62,6 +65,10 @@ set hlsearch
 " 查找输入时动态增量显示查找结果
 set incsearch
 
+" 设定窗口位置
+" 设定窗口大小
+"winpos 0 0              
+"set lines=40 columns=155
 
 "----------------------------------------------------------------------
 " 编码设置
@@ -77,6 +84,19 @@ if has('multi_byte')
 	set fileencodings=ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,latin1
 endif
 
+"设置终端编码为gvim内部编码encoding
+let &termencoding=&encoding
+
+
+"防止特殊符号无法正常显示
+set ambiwidth=double
+
+"解决consle输出乱码
+language messages zh_CN.utf-8
+
+"解决菜单乱码
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
 
 "----------------------------------------------------------------------
 " 允许 Vim 自带脚本根据文件类型自动设置缩进等
