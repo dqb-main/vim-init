@@ -52,7 +52,7 @@ set splitright
 set linespace=5
 
 "设置波浪号颜色
-highlight EndOfBuffer ctermfg=bg
+highlight EndOfBuffer ctermfg=grey
 "----------------------------------------------------------------------
 " 颜色主题：色彩文件位于 colors 目录中
 "----------------------------------------------------------------------
