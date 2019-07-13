@@ -8,7 +8,6 @@
 " Last Modified: 2018/05/30 16:53:18
 "
 "======================================================================
-" vim: set ts=4 sw=4 tw=78 noet :
 
 "----------------------------------------------------------------------
 " 基础设置
@@ -37,14 +36,6 @@ set ttimeout
 
 " 功能键超时检测 50 毫秒
 set ttimeoutlen=50
-
-" 显示光标位置
-set ruler
-
-"模仿windows快捷键 Ctrl+A全选、Ctrl+C复制、Ctrl+V粘贴
-source $VIMRUNTIME/vimrc_example.vim
-source $VIMRUNTIME/mswin.vim
-behave mswin
 
 "启动的时候不显示那个援助乌干达儿童的提示
 set shortmess=atI
@@ -154,6 +145,21 @@ set formatoptions+=B
 " 文件换行符，默认使用 unix 换行符
 set ffs=unix,dos,mac
 
+
+" 高亮当前行
+set cursorline
+
+"改变行号文字色
+highlight LineNr guifg=grey
+
+"改变行号的背景色
+"highlight LineNr guibg=white
+
+" 打开状态栏标尺
+set ruler                  
+
+" 带有如下符号的单词不要被换行分割  
+set iskeyword+=_,$,@,%,#,- 
 
 "----------------------------------------------------------------------
 " 设置代码折叠
